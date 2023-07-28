@@ -17,8 +17,8 @@ export default function Layout({ children, title }: Props) {
     }
   `);
   return (
-    <div>
-      <nav className="flex flex-row gap-x-2">
+    <div className="container mx-auto bg-stone-50 h-screen">
+      <nav className="flex flex-row gap-x-2 bg-lime-50">
         <div className="flex justify-center items-center m-4 border-solid border-2 rounded-2xl bg-gradient-to-r from-violet-300 to-amber-300">
           <h1 className="p-4 text-xl font-bold">
             {data?.site?.siteMetadata?.title}
