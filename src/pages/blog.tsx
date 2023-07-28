@@ -1,4 +1,6 @@
 import React from "react";
+import Layout from "../components/Layout";
+import Seo from "../components/Seo";
 
 /*************************************************************************************************
  * gatsby 에서의 라우팅
@@ -7,10 +9,14 @@ import React from "react";
  *************************************************************************************************/
 const blog = () => {
   return (
-    <div>
-      <h1>Blog page</h1>
-    </div>
+    <Layout title="Blog">
+      <div>
+        <h1>Blog page</h1>
+      </div>
+    </Layout>
   );
 };
 
 export default blog;
+
+export const Head = () => <Seo title="Blog" />;
