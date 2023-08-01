@@ -1,3 +1,4 @@
+require("dotenv").config();
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
@@ -20,6 +21,14 @@ const config: GatsbyConfig = {
       options: {
         name: `blogs`,
         path: `${__dirname}/src/blogs`
+      }
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `w1a2xpn7rj24`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
       }
     }
   ]
