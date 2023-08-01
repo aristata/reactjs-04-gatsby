@@ -11,17 +11,24 @@ import { Link, PageProps, graphql } from "gatsby";
 export default function blog({ data }: PageProps<Queries.BlogPostsQuery>) {
   return (
     <Layout title="Blog">
-      <section>
+      <section className="grid grid-cols-4 gap-4">
         {data.allMdx.nodes.map((file, index) => (
-          <Link to={`/blog/${file.frontmatter?.slug}`}>
-            <article key={index} className="mb-4">
-              <h2>{file.frontmatter?.title}</h2>
-              <h4>{file.frontmatter?.category}</h4>
-              <h5>{file.frontmatter?.date}</h5>
-              <hr />
-              <p>{file.excerpt}</p>
-            </article>
-          </Link>
+          <div className="border-2 rounded-xl border-green-700 p-4">
+            <Link to={`/blog/${file.frontmatter?.slug}`}>
+              <article key={index} className="mb-4">
+                <div className="flex flex-row gap-x-2 text-xl font-bold">
+                  <h4>{"📷 )))"}</h4>
+                  <h2>{file.frontmatter?.title}</h2>
+                </div>
+                <div className="flex flex-row gap-x-2 text-md mt-4">
+                  <h4>{file.frontmatter?.category}</h4>
+                  <h5>{file.frontmatter?.date}</h5>
+                </div>
+                <hr />
+                <p className="mt-4">{file.excerpt}</p>
+              </article>
+            </Link>
+          </div>
         ))}
       </section>
     </Layout>
