@@ -37,7 +37,7 @@ export default function blog({ data }: PageProps<Queries.BlogPostsQuery>) {
 
 export const query = graphql`
   query BlogPosts {
-    allMdx {
+    allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
         frontmatter {
           slug
