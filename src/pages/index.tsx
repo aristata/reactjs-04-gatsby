@@ -2,7 +2,7 @@ import * as React from "react";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 import { GatsbyImage, StaticImage, getImage } from "gatsby-plugin-image";
-import { PageProps, graphql } from "gatsby";
+import { Link, PageProps, graphql } from "gatsby";
 
 const IndexPage = ({ data }: PageProps<Queries.StickersQuery>) => {
   return (
@@ -15,12 +15,12 @@ const IndexPage = ({ data }: PageProps<Queries.StickersQuery>) => {
           /> */}
           {data.allContentfulProducts.nodes.map((sticker) => (
             <article>
-              <GatsbyImage
-                image={getImage(sticker.previewImage?.gatsbyImageData!)!}
-                alt={sticker.productName!}
-              />
-              <p>{sticker.productName}</p>
-              <p>{sticker.price}</p>
+              <Link to={`/products/${sticker.id}`}>
+                <GatsbyImage
+                  image={getImage(sticker.previewImage?.gatsbyImageData!)!}
+                  alt={sticker.productName!}
+                />
+              </Link>
             </article>
           ))}
         </div>
@@ -35,6 +35,7 @@ export const query = graphql`
   query Stickers {
     allContentfulProducts {
       nodes {
+        id
         productName
         price
         previewImage {

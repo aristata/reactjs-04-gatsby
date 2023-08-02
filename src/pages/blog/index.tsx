@@ -13,9 +13,9 @@ export default function blog({ data }: PageProps<Queries.BlogPostsQuery>) {
     <Layout title="Blog">
       <section className="grid grid-cols-4 gap-4">
         {data.allMdx.nodes.map((file, index) => (
-          <div className="border-2 rounded-xl border-green-700 p-4">
+          <div className="border-2 rounded-xl border-green-700 p-4" key={index}>
             <Link to={`/blog/${file.frontmatter?.slug}`}>
-              <article key={index} className="mb-4">
+              <article className="mb-4">
                 <div className="flex flex-row gap-x-2 text-xl font-bold">
                   <h4>{"📷 )))"}</h4>
                   <h2>{file.frontmatter?.title}</h2>
